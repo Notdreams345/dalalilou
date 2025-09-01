@@ -1,13 +1,13 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  color: #222;
-  background: linear-gradient(-45deg, #f0f4ff, #d0eaff, #c0dfff, #e0f7ff);
+  color: #eee;
+  background: linear-gradient(-45deg, #1a1f2b, #2c3e50, #34495e, #1c2833);
   background-size: 400% 400%;
-  animation: gradientFlow 15s ease infinite;
+  animation: gradientFlowDark 15s ease infinite;
 }
 
-@keyframes gradientFlow {
+@keyframes gradientFlowDark {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
