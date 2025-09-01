@@ -5,15 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luka 3D Studio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      backdrop-filter: blur(10px);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  </style>
 </head>
-<body class="bg-black text-white overflow-hidden">
+<body>
 
   <!-- Canvas WebGL -->
-  <canvas id="bgCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+  <canvas id="bgCanvas"></canvas>
 
   <!-- Navigation -->
-  <header class="flex justify-between items-center px-8 py-6 bg-black bg-opacity-70 backdrop-blur-md fixed w-full z-50">
+  <header class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-60 px-8 py-6 flex justify-between items-center">
     <h1 class="text-2xl font-bold tracking-wide">Luka 3D</h1>
     <nav class="space-x-6 text-sm uppercase font-semibold">
       <a href="#accueil" class="hover:text-cyan-400 transition">Accueil</a>
@@ -34,7 +64,6 @@
   <section id="boutique" class="px-8 py-24 fade-in">
     <h3 class="text-4xl font-semibold mb-12 text-center">Boutique</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Carte produit -->
       <div class="bg-white text-black rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition">
         <img src="https://via.placeholder.com/400x300" alt="Objet 3D" class="w-full h-56 object-cover" />
         <div class="p-6">
@@ -46,7 +75,6 @@
           </div>
         </div>
       </div>
-      <!-- Ajoute d'autres cartes ici -->
     </div>
   </section>
 
@@ -61,8 +89,50 @@
     </form>
   </section>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    // WebGL background
+    const canvas = document.getElementById('bgCanvas');
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+
+    const geometry = new THREE.IcosahedronGeometry(2, 1);
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x00ffff,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.4
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    const light = new THREE.PointLight(0xffffff, 1);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      mesh.rotation.x += 0.003;
+      mesh.rotation.y += 0.005;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // GSAP fade-in on scroll
+    document.addEventListener("scroll", () => {
+      document.querySelectorAll(".fade-in").forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
