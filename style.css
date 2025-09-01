@@ -35,3 +35,56 @@ header {
   width: 100%;
   border-radius: 8px;
 }
+
+#product-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1rem;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+.detail-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.detail-card button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #00ffcc;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.detail-card button:hover {
+  background-color: #00ddb3;
+}
+
+.detail-info {
+  max-width: 400px;
+}
+
+.detail-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.detail-info p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
