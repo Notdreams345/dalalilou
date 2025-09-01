@@ -46,13 +46,20 @@ header {
 }
 
 .detail-card {
-  background: #1a1a1a;
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   padding: 1rem;
   max-width: 300px;
   text-align: center;
-  box-shadow: 0 0 10px #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.detail-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.6);
+}
+
 
 .detail-card img {
   width: 100%;
