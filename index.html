@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Shop Minimaliste</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.156.1/build/three.min.js"></script>
+
+  <!-- Style global pour smooth scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    #bg-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body class="relative antialiased text-gray-800 bg-white">
+
+  <!-- NAVIGATION FIXE -->
+  <nav class="fixed top-0 left-0 w-full bg-white/50 backdrop-blur-md z-10">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <a href="#home" class="text-xl font-semibold">3D Shop</a>
+      <ul class="flex space-x-6">
+        <li><a href="#home" class="nav-link">Accueil</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SECTION ACCUEIL -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <canvas id="bg-canvas"></canvas>
+    <div class="z-10 text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Objets 3D Uniques</h1>
+      <p class="mb-8 max-w-xl mx-auto">Découvrez notre collection d’objets imprimés en 3D, conçus pour vos projets les plus créatifs.</p>
+      <a href="#contact" class="px-6 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-700 transition">Contactez-nous</a>
+    </div>
+  </section>
+
+  <!-- SECTION CONTACT -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold mb-6 text-center">Nous contacter</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Nom" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400" />
+        <input type="email" placeholder="Email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400" />
+        <textarea rows="4" placeholder="Votre message" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"></textarea>
+        <button type="submit" class="w-full px-6 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-700 transition">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
