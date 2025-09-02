@@ -1,30 +1,56 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galerie de Produits</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Nos Produits</h1>
-  <section id="packages">
+<main class="container">
+  <!-- HERO BOUTIQUE -->
+  <div class="grid cols-2" style="align-items:center">
     <div class="card">
-      <img src="produit1.jpg" alt="Produit 1">
-      <h2>Produit 1</h2>
-      <p>Description du produit 1.</p>
+      <h1 class="title">Bienvenue dans la <span style="color:var(--green)">Boutique 3D</span> 👋</h1>
+      <p class="lead">Objets imprimés en 3D : fidgets, gadgets, déco, pièces utiles. Conçus avec passion, testés et prêts à être adoptés.</p>
+      <div class="tags">
+        <button class="tag-btn">🧩 Fidget</button>
+        <button class="tag-btn">🛠️ Utilitaire</button>
+        <button class="tag-btn">🎁 Cadeau</button>
+        <button class="tag-btn">🌀 Custom</button>
+      </div>
     </div>
-    <div class="card">
-      <img src="produit2.jpg" alt="Produit 2">
-      <h2>Produit 2</h2>
-      <p>Description du produit 2.</p>
+    <img src="img/boutique3d.png" alt="Image boutique 3D" class="avatar-img">
+  </div>
+
+  <!-- PRODUITS 3D -->
+  <section id="produits">
+    <h2>🛒 Nos objets 3D</h2>
+    <div class="grid cols-3">
+      <a href="package.html?id=spirale" class="card product">
+        <img src="img/spirale.jpg" alt="Fidget Spirale">
+        <h3>Fidget Spirale</h3>
+        <p>Petit modèle tournant, très satisfaisant.</p>
+        <span class="price">1,50€</span>
+      </a>
+
+      <a href="package.html?id=morph" class="card product">
+        <img src="img/morph.jpg" alt="Fidget Morph">
+        <h3>Fidget Morph</h3>
+        <p>Se transforme en plusieurs formes.</p>
+        <span class="price">1,50€</span>
+      </a>
+
+      <a href="package.html?id=porte-cle" class="card product">
+        <img src="img/porte-cle.jpg" alt="Porte-clé 3D">
+        <h3>Porte-clé logo</h3>
+        <p>Personnalisable avec ton pseudo.</p>
+        <span class="price">2,00€</span>
+      </a>
+
+      <!-- Ajoute d'autres produits ici -->
     </div>
-    <div class="card">
-      <img src="produit3.jpg" alt="Produit 3">
-      <h2>Produit 3</h2>
-      <p>Description du produit 3.</p>
-    </div>
-    <!-- Ajoute autant de cartes que nécessaire -->
   </section>
-</body>
-</html>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>📬 Contact</h2>
+    <div class="card">
+      <div class="grid" style="grid-template-columns:1fr auto;align-items:center">
+        <p class="lead">Une commande spéciale ou une question ?</p>
+        <button onclick="window.location='mailto:lukanunziati157@gmail.com'">📧 lukanunziati157@gmail.com</button>
+      </div>
+    </div>
+  </section>
+</main>
