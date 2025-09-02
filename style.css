@@ -237,18 +237,47 @@ h2 {
       flex-shrink:0;margin-top:6px;
     }
     @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
-
+     
     /* SERVICES */
     .service{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
     .service svg{width:52px;height:52px;fill:url(#grad1);filter:drop-shadow(0 0 6px rgba(139,92,246,.7))}
     .service h3{font-size:18px;font-weight:700}
     .service p{font-size:15px;color:var(--muted)}
     .links{margin-top:16px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-
+       
     /* FOOTER */
     footer{text-align:center;padding:44px;color:var(--muted);font-size:14px;opacity:.85}
-
+      
     /* Accessibilité: réduire animations si préférence */
     @media (prefers-reduced-motion: reduce){
       *{animation:none !important;transition:none !important}
+    }  
+    .card.product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: rgba(20, 30, 45, 0.85);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+      
+    .card.product:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px rgba(0, 170, 255, 0.4);
+    }
+      
+    .card.product img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }   
+       
+    .card.product .price {
+      font-weight: bold;
+      color: #00aaff;
+      margin-top: 0.5rem;
     }
