@@ -8,61 +8,23 @@
 </head>
 <body>
   <h1>Nos Produits</h1>
-
   <section id="packages">
     <div class="card">
       <img src="produit1.jpg" alt="Produit 1">
       <h2>Produit 1</h2>
       <p>Description du produit 1.</p>
-      <button onclick="openMailModal('Produit 1')">Acheter</button>
     </div>
     <div class="card">
       <img src="produit2.jpg" alt="Produit 2">
       <h2>Produit 2</h2>
       <p>Description du produit 2.</p>
-      <button onclick="openMailModal('Produit 2')">Acheter</button>
     </div>
     <div class="card">
       <img src="produit3.jpg" alt="Produit 3">
       <h2>Produit 3</h2>
       <p>Description du produit 3.</p>
-      <button onclick="openMailModal('Produit 3')">Acheter</button>
     </div>
+    <!-- Ajoute autant de cartes que nécessaire -->
   </section>
-
-  <!-- Modale Formspree -->
-  <div id="mailModal" class="modal" style="display:none;">
-    <div class="modal-content">
-      <span class="close" onclick="closeMailModal()">&times;</span>
-      <h2>Envoyer une demande</h2>
-      <form id="mailForm" action="https://formspree.io/f/mdklllel" method="POST">
-        <input type="hidden" name="Produit" id="productName">
-        <p id="productLabel"></p>
-        <input type="email" name="email" placeholder="Votre adresse email" required>
-        <textarea name="message" placeholder="Votre message..." required></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Script inline -->
-  <script>
-    function openMailModal(productName) {
-      document.getElementById("mailModal").style.display = "block";
-      document.getElementById("productName").value = productName;
-      document.getElementById("productLabel").textContent = "Produit sélectionné : " + productName;
-    }
-
-    function closeMailModal() {
-      document.getElementById("mailModal").style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById("mailModal");
-      if (event.target === modal) {
-        closeMailModal();
-      }
-    };
-  </script>
 </body>
 </html>
