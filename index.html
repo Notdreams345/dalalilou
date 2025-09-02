@@ -2,22 +2,63 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Accueil - Packs Zratek</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dalalilou – Thème Sombre</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </head>
 <body>
-  <main>
-    <h1 style="text-align:center;">Choisis ton pack</h1>
-    <section id="packages"></section>
-  </main>
 
-  <!-- Scripts regroupés intelligemment -->
-  <script src="scripts/data.js"></script>
-  <script src="scripts/helpers.js"></script>
-  <script src="scripts/display.js"></script>
-  <script src="scripts/behavior.js"></script>
-  <script src="scripts/animation.js"></script>
-  <script src="scripts/app.js"></script>
+  <!-- En-tête fixe -->
+  <header class="site-header">
+    <nav>
+      <a href="#hero" class="logo">Dalalilou</a>
+      <ul>
+        <li><a href="#features">Fonctionnalités</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section Hero -->
+  <section id="hero" class="hero">
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Bienvenue sur Dalalilou</h1>
+      <p>Thème sombre, moderne, responsive, avec animations et sliders.</p>
+      <a href="#features" class="btn-primary">Découvrir</a>
+    </div>
+  </section>
+
+  <!-- Section Fonctionnalités (slider) -->
+  <section id="features" class="features">
+    <h2 data-aos="fade-right">Fonctionnalités</h2>
+    <div class="slider">
+      <div class="slide" data-aos="zoom-in">Slide 1</div>
+      <div class="slide" data-aos="zoom-in" data-aos-delay="200">Slide 2</div>
+      <div class="slide" data-aos="zoom-in" data-aos-delay="400">Slide 3</div>
+    </div>
+  </section>
+
+  <!-- Section À propos -->
+  <section id="about" class="about" data-aos="fade-left">
+    <h2>À propos</h2>
+    <p>Un design épuré, pensé pour mettre en avant votre contenu dès la page d’accueil.</p>
+  </section>
+
+  <!-- Section Contact -->
+  <section id="contact" class="contact" data-aos="fade-up">
+    <h2>Contactez-nous</h2>
+    <form>
+      <input type="email" placeholder="Votre e-mail" required />
+      <textarea placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
